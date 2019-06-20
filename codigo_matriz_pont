@@ -1,0 +1,64 @@
+/*
+Wallace Junio Silva
+Sistema de Informações 3° periodo - Faculdade Unica-Ipatinga
+Programa: Matriz de Ponteiros 
+Objetivo: Programa aloca memória dinamicamente, prenche memoria alocada e exibe na tela.
+	
+*/
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+
+int main () {
+	//Declaração de variaveis
+	int col,lin;
+	int **mat;
+	
+	//Menu 
+	printf("\n--------------------------------");
+	printf("\n*** [Matriz de Ponteiros ] ***");
+	printf("\n--------------------------------\n");
+	
+	printf("\nQuatidade de colunas: ");
+	scanf("%d",&col);
+	fflush(stdin);
+	printf("\nQuantidade de Linhas: ");
+	scanf("%d",&lin);
+	fflush(stdin);
+	
+	//Aloca memoria dinamicamente ponteiro para ponteiro(matriz)
+	mat = (int**) malloc(sizeof(int*)*lin);
+	
+	//laço para alocação de  colunas
+	for(int i=0;i<lin;i++) {
+		
+		mat[i] = (int*) malloc (sizeof(int*)*col);
+	
+	}
+	
+	
+	//preenche elementos da matriz
+		for(int i=0;i<col;i++) {
+		
+			for(int j=0;j<col;j++) {
+				
+				printf("\nMatriz [%d][%d] = ",i,j);
+				scanf("%d",&mat[i][j]);
+				fflush(stdin);	
+			
+			}
+		}
+		
+		
+		
+			//exibe elementos da matriz
+			for(int i=0;i<col;i++) {
+		
+				for(int j=0;j<col;j++) {
+				
+					printf("\nMatriz [%d][%d] = %d",i,j,mat[i][j]);
+					
+				}
+			}
+		
+}
